@@ -92,24 +92,25 @@ class Ui_MainWindow(object):
             self.sinfo.setVisible(True)
     def settUI(self):
         #main settings menu
-        self.settingswidget = QtWidgets.QFrame(self.centralwidget,QtCore.Qt.Horos)
+        self.settingswidget = QtWidgets.QFrame(self.centralwidget)
         self.settingswidget.setGeometry(QtCore.QRect(0,0,1126, 600))
         self.settingswidget.setStyleSheet("background-color: rgb(200, 200, 200);")
         self.settingswidget.setVisible(False)
         #button for exit settings menu
-       
-        self.slider = QtWidgets.QSlider(self.settingswidget)
+        self.back_zone = QtWidgets.QLabel(self.settingswidget)
+        self.back_zone.setGeometry(QtCore.QRect(400,20,300,563))
+        self.back_zone.setStyleSheet("background-color: rgb(117, 117, 117);")
+        self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal,self.back_zone)
         self.slider.setMinimum(0)
-        self.slider.setMaximum(int(str(int(psutil.virtual_memory()[0])//1024**2)[:2]))
-        self.slider.set
-        self.exitb = QtWidgets.QPushButton(self.settingswidget) 
+        self.slider.setMaximum(int(str(int(psutil.virtual_memory()[0])//1024//2024)[:2]))
+        self.exitb = QtWidgets.QPushButton(self.back_zone) 
         self.exitb.setGeometry(QtCore.QRect(0,0,40,40)) 
         self.exitb.clicked.connect(lambda: self.settingswidget.setVisible(False))
 
     def setupUi(self, MainWindow):
         #window
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1125, 599)
+        MainWindow.resize(1126, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         #left line
