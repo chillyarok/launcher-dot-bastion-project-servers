@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
         self.back_zone.setStyleSheet("background-color: rgb(117, 117, 117);")
         self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal,self.back_zone)
         self.slider.setMinimum(0)
-        self.slider.setMaximum(int(str(int(psutil.virtual_memory()[0])//1024//2024)[:2]))
+        self.slider.setMaximum(int(str(int(psutil.virtual_memory()[0])//1024//2024)))
         self.exitb = QtWidgets.QPushButton(self.back_zone) 
         self.exitb.setGeometry(QtCore.QRect(0,0,40,40)) 
         self.exitb.clicked.connect(lambda: self.settingswidget.setVisible(False))
