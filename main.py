@@ -5,7 +5,7 @@ from minecraft_launcher_lib.command import get_minecraft_command
 from minecraft_launcher_lib.install import install_minecraft_version
 from minecraft_launcher_lib.utils import get_minecraft_directory
 import uuid
-import psutil
+import hard_funcs
 minecraft_dir = get_minecraft_directory().replace("minecraft","blauncher")
 class LaunchThread(QtCore.QThread):
 
@@ -52,7 +52,6 @@ class LaunchThread(QtCore.QThread):
         self.update_progress(self,0)
 
 class Ui_MainWindow(object):
-
     def soedinenie_info(self):
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -102,7 +101,9 @@ class Ui_MainWindow(object):
         self.back_zone.setStyleSheet("background-color: rgb(117, 117, 117);")
         self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal,self.back_zone)
         self.slider.setMinimum(0)
-        self.slider.setMaximum(int(str(int(psutil.virtual_memory()[0])//1024//2024)))
+        self.slider.setMaximum(hard_funcs.get_ram_in_gb())
+        self.slider.setValue(hard_funcs.get_ram_in_gb()//2)
+        self.slider.set
         self.exitb = QtWidgets.QPushButton(self.back_zone) 
         self.exitb.setGeometry(QtCore.QRect(0,0,40,40)) 
         self.exitb.clicked.connect(lambda: self.settingswidget.setVisible(False))
