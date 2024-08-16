@@ -52,6 +52,13 @@ class LaunchThread(QtCore.QThread):
         self.update_progress(self,0)
 
 class Ui_MainWindow(object):
+    def login_menu(self):
+        self.back = QtWidgets.QFrame(MainWindow)
+        self.back.setGeometry(QtCore.QRect(400,20,300,563))
+        self.back.setStyleSheet("background-color: rgb(200, 200, 200);")
+        self.LaunchButton.setDisabled(True)
+        self.EnterNickname.setDisabled(True)
+        self.settingsb.setDisabled(True)
     def soedinenie_info(self):
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -103,7 +110,6 @@ class Ui_MainWindow(object):
         self.slider.setMinimum(0)
         self.slider.setMaximum(hard_funcs.get_ram_in_gb())
         self.slider.setValue(hard_funcs.get_ram_in_gb()//2)
-        self.slider.set
         self.exitb = QtWidgets.QPushButton(self.back_zone) 
         self.exitb.setGeometry(QtCore.QRect(0,0,40,40)) 
         self.exitb.clicked.connect(lambda: self.settingswidget.setVisible(False))
@@ -174,7 +180,8 @@ class Ui_MainWindow(object):
         self.launch_thread.state_update_signal.connect(self.state_update)
         self.launch_thread.progress_update_signal.connect(self.update_progress_bar)
         #settings
-        self.settUI()
+        #self.settUI() пока не работает
+        self.login_menu()
         self.settingsb.clicked.connect(lambda: self.settingswidget.setVisible(True))
         MainWindow.setCentralWidget(self.centralwidget)
 
