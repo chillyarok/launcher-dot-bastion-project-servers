@@ -5,7 +5,7 @@ from minecraft_launcher_lib.command import get_minecraft_command
 from minecraft_launcher_lib.install import install_minecraft_version
 from minecraft_launcher_lib.utils import get_minecraft_directory
 import uuid
-import hard_funcs
+import old.hard_funcs as hard_funcs
 minecraft_dir = get_minecraft_directory().replace("minecraft","blauncher")
 class LaunchThread(QtCore.QThread):
 
