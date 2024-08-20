@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="launch_button">
+    <file>launchimage clicked.png</file>
+    <file>launchimage hover.png</file>
+    <file>launchimage.png</file>
+  </qresource>
+  <qresource prefix="logo">
+    <file>BASMINE.png</file>
+  </qresource>
+  <qresource prefix="background">
+    <file>bgimage.jpg</file>
+  </qresource>
+</RCC>

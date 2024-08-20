@@ -53,15 +53,28 @@ class LaunchThread(QtCore.QThread):
 
 class Ui_MainWindow(object):
     def login_menu(self):
-        self.back = QtWidgets.QFrame(MainWindow)
-        self.back.setGeometry(QtCore.QRect(400,20,300,563))
-        self.back.setStyleSheet("background-color: rgb(200, 200, 200);")
-        self.login = QtWidgets.QLineEdit(self.back)
-        self.login.setGeometry(QtCore.QRect(0,0,300,50))
         font = QtGui.QFont()
         font.setPointSize(24)
+        self.back = QtWidgets.QFrame(MainWindow)
+        self.back.setGeometry(QtCore.QRect(400,20,350,563))
+        self.back.setStyleSheet("background-color: rgb(255, 255, 255);")
+
+        self.logo = QtWidgets.QLabel(self.back)
+        self.logo.setGeometry(QtCore.QRect(0,100,300,50))
+        self.vhod = QtWidgets.QLabel(self.back)
+        self.vhod.setGeometry(QtCore.QRect(0,50,300,50))
+        self.vhod.setText("Вход")
+        self.vhod.setFont(font)
+
+        self.login = QtWidgets.QLineEdit(self.back)
+        self.login.setGeometry(QtCore.QRect(25,100,300,50))
         self.login.setFont(font)
         self.login.setPlaceholderText("логин basmine id:")
+
+        self.password = QtWidgets.QLineEdit(self.back)
+        self.password.setGeometry(QtCore.QRect(25,170,300,50))
+        self.password.setFont(font)
+        self.password.setPlaceholderText("пароль basmine id:")
         self.LaunchButton.setDisabled(True)
         self.EnterNickname.setDisabled(True)
         self.settingsb.setDisabled(True)
@@ -126,6 +139,29 @@ class Ui_MainWindow(object):
         MainWindow.resize(1126, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.centralwidget.setStyleSheet("""
+            #centralwidget {
+                display: flex;
+                flex-direction: row;
+            }
+            #leftline, #main {
+                flex: 1;
+            }
+            @media (max-width: 768px) {
+                #centralwidget {
+                    flex-direction: column;
+                }
+                #leftline, #main {
+                    flex: auto;
+                }
+                .back {
+                    width: 100% !important;
+                }
+                .login, .password {
+                    width: 90% !important;
+                }
+            }
+        """)
         #left line
         self.leftline = QtWidgets.QFrame(self.centralwidget)
         self.leftline.setGeometry(QtCore.QRect(0, 0, 160, 600))
