@@ -1,6 +1,6 @@
 import telebot as tbot
 import bd_module as bd
-token =  "7357308958:AAF-4bDOQQokRTr37rU5K6eecenBQsjR1tE"
+token =  "token"
 bot = tbot.TeleBot(token)
 nick = ""
 passw = ""
